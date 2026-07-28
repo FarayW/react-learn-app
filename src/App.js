@@ -1,27 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Counter from "./components/Counter";
+import TextInput from "./components/TextInput";
 
 function App() {
-  const [text, setText] = useState('TEST');
-
-
-  return (
-    <div className="App">
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      
-
-      <h1>{text}</h1>
-      <input
-          type="text"
-          value={text}
-          onChange={event => setText(event.target.value)} />
-    </div>
-  );
+    return (<div className="App">
+        <Counter/>
+        <Counter/>
+        <TextInput/>
+        <TextInput/>
+    </div>);
 }
 
 export default App;
