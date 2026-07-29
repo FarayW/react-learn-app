@@ -1,12 +1,12 @@
 import React from 'react';
 
-const PostItem = () => {
+const PostItem = (props) => {
     return (
         <div className="post">
             <div className="postcontent">
-                <strong>1. TypeScript</strong>
+                <strong>{props.post.id}. {props.post.title}</strong>
                 <div>
-                    TypeScript - надстройка над JS
+                    {props.post.content}
                 </div>
             </div>
             <div className="postbtns">

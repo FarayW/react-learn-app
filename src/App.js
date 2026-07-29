@@ -12,10 +12,28 @@ function App() {
         <ClassCounter/>
         <CounterMult/>
         <TextInput/>
-        <PostItem/>
-        <PostItem/>
-        <PostItem/>
-        <PostItem/>
+        <PostItem post={{
+            id: 1,
+            title: "Test Post",
+            content: "Test Post",
+        }}/>
+        <PostItem post={{
+            id: 2,
+            title: "Test FWQgfe",
+            content: "Test Post",
+        }}/>
+        <PostItem post={{
+            id: 3,
+            title: "Test ffAQWasFF",
+            content: "TsaADSAest Post",
+        }}/>
+
+        <PostItem post={{
+            id: 4,
+            title: "Test dada",
+            content: "eqwadqe Post",
+        }}/>
+
 
 
     </div>);
