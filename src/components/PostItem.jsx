@@ -10,7 +10,7 @@ const PostItem = () => {
                 </div>
             </div>
             <div className="postbtns">
-                <button>Удалить</button>
+                <button className="btn">Удалить</button>
             </div>
         </div>
     );
