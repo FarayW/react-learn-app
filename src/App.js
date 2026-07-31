@@ -1,10 +1,6 @@
 import React from 'react'
 import './styles/App.css'
-import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
-import CounterMult from "./components/CounterMult";
-import TextInput from "./components/TextInput";
-import PostItem from "./components/PostItem";
+import PostList from "./components/PostList";
 
 function App() {
 
@@ -23,17 +19,8 @@ function App() {
 
 
     return (<div className="App">
-        {
-            posts.map((post) => (
-                <PostItem key={post.id} post={post} />
-            ))
-        }
-
-        {
-            posts2.map((post) => (
-                <PostItem key={post.id} post={post} />
-            ))
-        }
+        <PostList posts={posts} />
+        <PostList posts={posts2} />
     </div>);
 }
 
