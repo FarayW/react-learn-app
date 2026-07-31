@@ -13,9 +13,13 @@ function App() {
         setPosts([...posts, {...post, id: Date.now()}]);
     }
 
+    function removePost(post) {
+        setPosts(posts.filter(p => p.id !== post.id));
+    }
+
     return (<div className="App">
         <PostForm createCallback={createPost}/>
-        <PostList posts={posts} title={'TypeScript posts'}/>
+        <PostList removeCallback={removePost} posts={posts} title={'TypeScript posts'}/>
     </div>);
 }
 

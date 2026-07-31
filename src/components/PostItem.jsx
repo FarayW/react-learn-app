@@ -12,7 +12,7 @@ const PostItem = (props) => {
                 </div>
             </div>
             <div className="postbtns">
-                <MyButton>Удалить</MyButton>
+                <MyButton onClick={() => props.removeCallback(props.post)}>Удалить</MyButton>
             </div>
         </div>
     );
