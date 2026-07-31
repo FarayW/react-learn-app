@@ -12,22 +12,39 @@ function App() {
         {id: 3, title: 'TypeScript 3', content: 'DESCRIPTION'},
     ]);
 
-    const [posts2, setPosts2] = React.useState([
-        {id: 1, title: 'Rust', content: 'DESCRIPTION'},
-        {id: 2, title: 'Rust 2', content: 'DESCRIPTION'},
-        {id: 3, title: 'Rust 3', content: 'DESCRIPTION'},
-    ]);
 
 
+    const addNewPost = (e) => {
+        e.preventDefault();
+        const newPost = {
+            id: Date.now(),
+            title,
+            content,
+        }
+
+        console.log(newPost);
+
+        setPosts([...posts, newPost]);
+    }
+
+    const [title, setTitle] = React.useState('');
+    const [content, setContent] = React.useState('');
 
     return (<div className="App">
         <form>
-            <MyInput type="text" placeholder='Название поста'/>
-            <MyInput type="text" placeholder='Описание поста'/>
-            <MyButton>Создать пост</MyButton>
+            <MyInput
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                placeholder='Название поста'/>
+            <MyInput
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                type="text"
+                placeholder='Описание поста'/>
+            <MyButton onClick={addNewPost}>Создать пост</MyButton>
         </form>
         <PostList posts={posts} title={'TypeScript posts'} />
-        <PostList posts={posts2} title={'Rust posts'} />
     </div>);
 }
 
