@@ -1,0 +1,23 @@
+.myButton {
+    background-color: #1454e1;
+    border-radius: 15px;
+    width: 120px;
+    height: 30px;
+    border: none;
+    transition: 0.2s ease;
+}
+
+@media (hover: hover) {
+    .myButton:hover {
+        background-color: #1f741f;
+        transform: scale(1.05);
+        transition: 0.1s linear;
+    }
+}
+
+.myButton:active {
+    border: 2px solid black;
+    transform: scale(1.20);
+    background-color: #00ff00;
+    transition: 0.05s linear;
+}
