@@ -6,45 +6,33 @@ import MyInput from "./components/UI/input/MyInput";
 
 function App() {
 
-    const [posts, setPosts] = React.useState([
-        {id: 1, title: 'TypeScript', content: 'DESCRIPTION'},
-        {id: 2, title: 'TypeScript 2', content: 'DESCRIPTION'},
-        {id: 3, title: 'TypeScript 3', content: 'DESCRIPTION'},
-    ]);
+    const [posts, setPosts] = React.useState([{id: 1, title: 'TypeScript', content: 'DESCRIPTION'}, {
+        id: 2, title: 'TypeScript 2', content: 'DESCRIPTION'
+    }, {id: 3, title: 'TypeScript 3', content: 'DESCRIPTION'},]);
 
+    const [post, setPost] = React.useState({title: '', content: ''});
 
-
-    const addNewPost = (e) => {
+    function addNewPost(e) {
         e.preventDefault();
-        const newPost = {
-            id: Date.now(),
-            title,
-            content,
-        }
-
-        console.log(newPost);
-
-        setPosts([...posts, newPost]);
+        setPosts([...posts, {...post, id: Date.now()}]);
+        setPost({title: '', content: ''});
     }
-
-    const [title, setTitle] = React.useState('');
-    const [content, setContent] = React.useState('');
 
     return (<div className="App">
         <form>
             <MyInput
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={post.title}
+                onChange={(e) => setPost({...post, title: e.target.value})}
                 type="text"
                 placeholder='Название поста'/>
             <MyInput
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
+                value={post.content}
+                onChange={(e) => setPost({...post, content: e.target.value})}
                 type="text"
                 placeholder='Описание поста'/>
             <MyButton onClick={addNewPost}>Создать пост</MyButton>
         </form>
-        <PostList posts={posts} title={'TypeScript posts'} />
+        <PostList posts={posts} title={'TypeScript posts'}/>
     </div>);
 }
 
