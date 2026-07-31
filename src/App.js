@@ -19,8 +19,8 @@ function App() {
 
 
     return (<div className="App">
-        <PostList posts={posts} />
-        <PostList posts={posts2} />
+        <PostList posts={posts} title={'TypeScript posts'} />
+        <PostList posts={posts2} title={'Rust posts'} />
     </div>);
 }
 
