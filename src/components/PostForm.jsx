@@ -2,13 +2,14 @@ import React from 'react';
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
 
-const PostForm = ({createCallback}) => {
-    const [post, setPost] = React.useState({title: '', content: ''});
+const PostForm = (props) => {
+    const {setPosts} = props;
 
+    const [post, setPost] = React.useState({title: '', content: ''});
 
     function addNewPost(e) {
         e.preventDefault();
-        createCallback(post);
+        setPosts(prev => [...prev, {...post, id: Date.now()}]);
         setPost({title: '', content: ''});
     }
 

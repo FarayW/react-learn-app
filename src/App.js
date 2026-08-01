@@ -12,25 +12,14 @@ function App() {
         {id: 3, title: 'zzz 3', content: 'a'},
     ]);
 
-
-
-    function createPost(post) {
-        setPosts([...posts, {...post, id: Date.now()}]);
-    }
-
-    function removePost(post) {
-        setPosts(posts.filter(p => p.id !== post.id));
-    }
-
-    return (<div className="App">
-        <PostForm createCallback={createPost}/>
-
-        <hr style={{margin: "10px 0"}}/>
-
-        <PostFilter setPosts={setPosts} />
-
-        <PostList removeCallback={removePost} posts={posts} title={'TypeScript posts'}/>
-    </div>);
+    return (
+        <div className="App">
+            <PostForm setPosts={setPosts}/>
+            <hr style={{margin: "10px 0"}}/>
+            <PostFilter setPosts={setPosts}/>
+            <PostList setPosts={setPosts} posts={posts}>TypeScript posts</PostList>
+        </div>
+    );
 }
 
 export default App;

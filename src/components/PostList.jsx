@@ -2,7 +2,15 @@ import React from 'react';
 import PostItem from "./PostItem";
 import classes from "./PostList.module.css";
 
-const PostList = ({posts, title, removeCallback}) => {
+const PostList = (props) => {
+
+    const {posts, setPosts, children} = props;
+
+    function removePost(post) {
+        setPosts(prev => prev.filter(p => p.id !== post.id));
+    }
+
+
     return (
         <div>
             {
@@ -10,10 +18,10 @@ const PostList = ({posts, title, removeCallback}) => {
                     <h1 className={classes.title}>Постов нету</h1>
                     :
                     <>
-                        <h1 className={classes.title}>{title}</h1>
+                        <h1 className={classes.title}>{children}</h1>
                         {
                             posts.map((post) => (
-                                <PostItem removeCallback={removeCallback} key={post.id} post={post} />
+                                <PostItem removeCallback={removePost} key={post.id} post={post} />
                             ))
                         }
                     </>
